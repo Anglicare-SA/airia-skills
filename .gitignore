@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+*.local.*
+*_deploy.json
+.DS_Store
+Thumbs.db
