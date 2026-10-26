@@ -1,7 +1,7 @@
 # Airia Skills
 
 Agent Skills for Anglicare SA, served through the Airia MCP Gateway (Skills over MCP) to
-connected MCP clients such as Claude Code and goose.
+connected MCP clients.
 
 A skill is a folder with a `SKILL.md`: frontmatter with a `name` and a description of when
 to use it, then the instructions. Clients see only names and descriptions until a skill

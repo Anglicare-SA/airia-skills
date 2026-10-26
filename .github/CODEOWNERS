@@ -1,4 +1,5 @@
-# SKILL.md text goes straight into the model's context, so every change needs a code owner review.
+# SKILL.md text goes straight into the model's context, so every change needs an approver.
+# Add people to the Anglicare-SA/airia-approvers team rather than listing them here.
 *            @sherennanayakkara
-/skills/     @sherennanayakkara
+/skills/     @Anglicare-SA/airia-approvers
 /.github/    @sherennanayakkara
