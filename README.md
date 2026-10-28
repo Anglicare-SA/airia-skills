@@ -13,6 +13,7 @@ matches the task, then read its instructions.
 |---|---|
 | [`airia-tagging-standard`](skills/airia-tagging-standard/SKILL.md) | Choosing and checking tags for Airia agents |
 | [`skills-gateway-check`](skills/skills-gateway-check/SKILL.md) | Confirming gateway skills reach a client |
+| [`rtf-document`](skills/rtf-document/SKILL.md) | Writing a valid Rich Text Format (.rtf) document |
 
 ## How it's served
 
