@@ -28,6 +28,32 @@ matches the task, then read its instructions.
 Merged changes on `main` are picked up the next time the gateway fetches the repository.
 To freeze what clients get, point the server at a tag instead of `main`.
 
+## Using these skills in a normal Airia agent
+
+The gateway above serves skills to external MCP clients. A normal Airia agent can also use
+them, without MCP, by loading them from this repository at run time:
+
+1. **Python step** before the AI step. It lists `skills/` with the GitHub contents API,
+   downloads each `SKILL.md` from `raw.githubusercontent.com` (no token, because the
+   repository is public), and builds one text block: a catalog of names and descriptions,
+   the full skill bodies, then the user's request. Load at most 20 skills.
+2. **AI step** with no tools attached. Its prompt tells it to pick the skill that matches
+   the request, follow it, and finish with `Skill used: <name>`.
+
+To check it works, ask the agent to "run the skills gateway check". It should answer
+`Gateway skills OK` and list every skill in this repository.
+
+Things to know:
+
+- The repository is public, so **never put credentials, personal information or
+  internal-only detail in a skill**.
+- GitHub limits unauthenticated API calls to 60 an hour per IP address. If the listing
+  fails, the output begins `Problems: Could not list skills`. Heavy use may need a fixed
+  skill list or a cached copy.
+- Every skill is added to every run, so prompt size grows with the library.
+- AI-step custom HTTP tools don't fill URL path placeholders, which is why the loader is a
+  Python step rather than a tool.
+
 ## Rules the gateway applies (checked in CI)
 
 The gateway skips a broken skill without any warning, so **Validate skills** fails the
